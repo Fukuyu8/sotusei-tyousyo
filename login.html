@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        let firebaseConfig = {
+
+
+            apiKey: "AIzaSyCcVbVy-pEgB4YVsbWpkGqst0XptMm0cZc",
+            authDomain: "sotusei-tyousyo.firebaseapp.com",
+            projectId: "sotusei-tyousyo",
+            storageBucket: "sotusei-tyousyo.appspot.com",
+            messagingSenderId: "1021979743377",
+            appId: "1:1021979743377:web:1df25c29a833190661db30"
+
+
+
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        let uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function () {
+                    // console.log("ログイン成功")
+                    // return true;
+                    location.href = "title.html"
+                },
+            },
+            signInOptions: [
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            ],
+        };
+
+        let ui = new firebaseui.auth.AuthUI(firebase.auth());
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+</head>
+
+<body>
+
+    <div id="firebaseui-auth-container"></div>
+
+</body>
+
+</html>
